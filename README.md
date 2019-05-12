@@ -1,2 +1,2 @@
 # Pests_Scraper_BeautifulSoup
-generates pests data and saves it to excel  
+Scrapes pests data using BeautifulSoup and saves it to excel format using Pandas
