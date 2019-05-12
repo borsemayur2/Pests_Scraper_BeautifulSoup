@@ -1,4 +1,3 @@
-# from selenium import webdriver as wd
 import requests
 import urllib.request
 from bs4 import BeautifulSoup as bs
@@ -34,10 +33,8 @@ for i in href:
         
 for i in range(len((name))):
     if not 'http'in href[i]:
-        # print(href[i])
         href[i]="http://www.agriculture.gov.au"+href[i]
-        # print(href[i])
-    # urllib.request.urlretrieve(img[i],name[i]+'.jpg')
+    urllib.request.urlretrieve(img[i],name[i]+'.jpg')
 fields=["Disease Name","Image link","Page Origin","Origin","Pest Type","Legal in Australia"]
 data = [name,img,href,origin,pest_type,au_legal,]
 
@@ -52,17 +49,3 @@ with open('diseases.csv', 'a', encoding='utf-8') as csv_file:
     for i in range(len(name)):
         writer.writerow([name[i],img[i],href[i],origin[i],pest_type[i],au_legal[i]])
         
-
-print(len(name))
-print(len(img))
-print(len(href))
-print(len(origin))
-print(len(pest_type))
-print(len(au_legal))
-# To download the whole data set, let's do a for loop through all a tags
-# for i in range(36,len(soup.findAll('a'))+1): #'a' tags are for links
-#     one_a_tag = soup.findAll('a')[i]
-#     link = one_a_tag['href']
-#     download_url = 'http://web.mta.info/developers/'+ link
-#     urllib.request.urlretrieve(download_url,'./'+link[link.find('/turnstile_')+1:]) 
-# time.sleep(1)
